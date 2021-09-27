@@ -1,0 +1,31 @@
+.contenidorflex{
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+}
+.FlexHeader,.FlexFooter{
+    background-color: darkgreen;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+}
+.FlexItem {
+    display: flex;
+    align-items: center;
+    min-height: 6.25rem;
+    padding: 1rem;
+}
+.FlexHeader{
+    order: 1;
+     align-items: center;
+  justify-content: center;
+}
+.FlexContent{
+    background-color: lightgreen;
+    order: 2;
+         align-items: center;
+  justify-content: center;
+}
+.FlexFooter{
+    order: 5;
+}
