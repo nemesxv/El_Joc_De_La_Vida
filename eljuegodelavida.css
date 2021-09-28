@@ -4,7 +4,7 @@
     flex-direction: column;
 }
 .FlexHeader,.FlexFooter{
-    background-color: darkgreen;
+    background-color: darkslategray;
     border-style: solid;
     border-color: black;
     border-width: 1px;
@@ -21,7 +21,7 @@
   justify-content: center;
 }
 .FlexContent{
-    background-color: lightgreen;
+    background-color: darkslategrey;
     order: 2;
          align-items: center;
   justify-content: center;
