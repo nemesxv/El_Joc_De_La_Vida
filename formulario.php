@@ -18,9 +18,9 @@ echo "X: " . $ancho . " Y: " . $largo;?>
     <h3 class="ti" style="color:white"><center>Marque las cel·lulas vivas</center></h3>
     <table class="center">
         <?php
-        for($i = 0;$y<$ancho;$i++){?>
+        for($i = 0;$i<$ancho;$i++){?>
         <tr>
-            <?php for($x = 0;$i<$largo;$i++){?>
+            <?php for($x = 0;$x<$largo;$x++){?>
             <td>
             <input type="checkbox">
             </td>
