@@ -8,13 +8,19 @@
 </head>
 <body>
    <div class="contenidorflex">
+       <div class="FlexItem descripcion"> Tota cel·la viva amb menys de dos veïns vius mort (de solitud).<br>
+Tota cel·la viva amb més de tres veïns vius mort (de sobreconcentració).<br>
+Tota cel·la viva amb dos o tres veïns vius, segueix viva per a la següent generació.<br>
+Tota cel·la morta amb exactament tres veïns vius torna a la vida.
+ <br><br>
+       Elija el tamaño del mapa</div>
        <div class="FlexItem FlexContent"> 
            <form action="formulario.php">
-  <label for="ancho">X:</label>
-  <input type="number" id="ancho" name="ancho"><br><br>
-  <label for="largo">Y:</label>
+  <label for="largo">X:</label>
   <input type="number" id="largo" name="largo"><br><br>
-  <input type="submit" value="Submit">
+  <label for="ancho">Y:</label>
+  <input type="number" id="ancho" name="ancho"><br><br>
+  <input type="submit" value="Generar">
 </form> </div>
        <div class="FlexItem FlexHeader">
            <h1>El juego de la vida</h1>
