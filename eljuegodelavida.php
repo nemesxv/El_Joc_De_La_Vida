@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <title></title>
     <meta name="viewport" content="width-device-widt,initial-scale=1.0">
-    <link rel="stylesheet" href="C:\OneDrive\DAW2\Proyectos\Game of life\eljuegodelavida.css">
+    <link rel="stylesheet" href="eljuegodelavida.css">
 </head>
 <body>
    <div class="contenidorflex">
-       <div class="FlexItem FlexContent"> <form action="/action_page.php">
+       <div class="FlexItem FlexContent"> 
+           <form action="formulario.php">
   <label for="ancho">X:</label>
   <input type="number" id="ancho" name="ancho"><br><br>
   <label for="largo">Y:</label>
