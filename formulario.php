@@ -19,8 +19,8 @@ $ancho = $_GET["ancho"];
 $largo = $_GET["largo"];
 ?>
 <body style="background-color:#202020;">
-    <button value="atras" onClick="location.href=eljuegodelavida.php" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <button value="<<"  />
+    <button onClick="location.href=eljuegodelavida.php">Atras</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    
     <button value="play" />
     <button value=">>0" />
     <h3 class="ti" style="color:white"><center>Marque las cel·lulas vivas</center></h3>
