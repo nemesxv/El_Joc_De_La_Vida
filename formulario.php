@@ -7,10 +7,14 @@
     .center {
   margin-left: auto;
   margin-right: auto;
-        
 }
         table{
             border-collapse: collapse;
+            line-height: 11px;
+        }
+        input{
+            padding: 0;
+            margin: 0;
         }
     </style>
 </head>
@@ -20,9 +24,18 @@ $largo = $_GET["largo"];
 ?>
 <body style="background-color:#202020;">
     <a href="eljuegodelavida.php">
-  <button>Click Me</button>
+  <button>Atras</button>
 </a>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <body style="background-color:#202020;">
+    <a href="eljuegodelavida.php">
+  <button>&lt; &lt; </button>
+    <a href="eljuegodelavida.php">
+  <button>Play</button>
+</a>
+    <a href="eljuegodelavida.php">
+  <button>&gt;&gt;</button>
+</a>
 
     <h3 class="ti" style="color:white"><center>Marque las cel·lulas vivas</center></h3>
     <table class="center">
@@ -31,7 +44,7 @@ $largo = $_GET["largo"];
         <tr>
             <?php for($x = 0;$x<$largo;$x++){?>
             <td>
-            <input type="checkbox">
+            <input type="checkbox" name="tabla[<?=$x;?>][<?=$i;?>]">
             </td>
             <?php } ?>
         </tr>
