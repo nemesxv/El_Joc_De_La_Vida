@@ -13,8 +13,12 @@
 <?php
 $ancho = $_GET["ancho"];
 $largo = $_GET["largo"];
-echo "X: " . $ancho . " Y: " . $largo;?>
+?>
 <body style="background-color:#202020;">
+    <input type="submit" value="atras" onClick="eljuegodelavida.php">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="submit" value="<<"  >
+    <input type="submit" value="play">
+    <input type="submit" value=">>">
     <h3 class="ti" style="color:white"><center>Marque las cel·lulas vivas</center></h3>
     <table class="center">
         <?php
