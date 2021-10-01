@@ -27,7 +27,7 @@ $largo = $_GET["largo"];
   <button>Atras</button>
 </a>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <?php if($ancho<4 || $ancho>500 || $ancho==null || $largo<4 || $largo<500 || $largo==null){ 
+    <?php if($ancho<4 || $ancho>500 || $ancho==null || $largo<4 || $largo>500 || $largo==null){ 
         echo '<div>test</div>';
      }else{ 
    echo '<a href="eljuegodelavida.php">
