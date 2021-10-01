@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Tabla cel·lular</title>
+<title>Tabla celular</title>
     <style>
     .center {
   margin-left: auto;
@@ -40,7 +40,7 @@ $largo = $_GET["largo"];
         echo '<tr>';
             for($x = 0;$x<$largo;$x++){
             echo '<td>
-            <input type="checkbox" name="tabla[$x][$i]">
+            <input type="checkbox" name="tabla[$ancho][$largo]">
             </td>';
             }
         echo'</tr>';
