@@ -27,31 +27,26 @@ $largo = $_GET["largo"];
   <button>Atras</button>
 </a>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <?php if(($ancho<4) || ($ancho>500) || ($ancho==null) || ($largo<4) || ($largo<500) || ($largo==null)){ ?>
-        <div>tetas</div>
-    <?php }else{ ?>
-    <a href="eljuegodelavida.php">
-  <button>&lt; &lt; </button>
-    <a href="eljuegodelavida.php">
+    <?php if(($ancho<4) || ($ancho>500) || ($ancho==null) || ($largo<4) || ($largo<500) || ($largo==null)){ 
+        echo '<div>test</div>';
+     }else{ 
+   echo' <a href="eljuegodelavida.php">
   <button>Play</button>
-</a>
-    <a href="eljuegodelavida.php">
-  <button>&gt;&gt;</button>
-</a>
+</a>';
 
-    <h3 class="ti" style="color:white"><center>Marque las cel·lulas vivas</center></h3>
-    <table class="center">
-        <?php
-        for($i = 0;$i<$ancho;$i++){?>
-        <tr>
-            <?php for($x = 0;$x<$largo;$x++){?>
-            <td>
-            <input type="checkbox" name="tabla[<?=$x;?>][<?=$i;?>]">
-            </td>
-            <?php } ?>
-        </tr>
-        <?php } ?>
-    </table>
-        <?php } ?>
+    echo'<h3 class="ti" style="color:white"><center>Marque las cel·lulas vivas</center></h3>';
+    echo'<table class="center">';
+        
+        for($i = 0;$i<$ancho;$i++){
+        echo'<tr>';
+            for($x = 0;$x<$largo;$x++){
+            echo'<td>
+            <input type="checkbox" name="tabla[$x][$i]">
+            </td>';
+            }
+        echo'</tr>';
+        } 
+   echo '</table>';
+ } ?>
 </body>
 </html>
