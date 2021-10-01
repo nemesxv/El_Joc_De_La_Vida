@@ -29,12 +29,7 @@ $largo = $_GET["largo"];
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <body style="background-color:#202020;">
     <a href="eljuegodelavida.php">
-  <button>&lt; &lt; </button>
-    <a href="eljuegodelavida.php">
   <button>Play</button>
-</a>
-    <a href="eljuegodelavida.php">
-  <button>&gt;&gt;</button>
 </a>
 
     <h3 class="ti" style="color:white"><center>Marque las cel·lulas vivas</center></h3>

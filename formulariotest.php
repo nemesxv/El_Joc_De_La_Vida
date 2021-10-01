@@ -29,8 +29,7 @@ $largo = $_GET["largo"];
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <?php if(($ancho<4) || ($ancho>500) || ($ancho==null) || ($largo<4) || ($largo<500) || ($largo==null)){ ?>
         <div>tetas</div>
-    <?php }endif; ?>
-    <body style="background-color:#202020;">
+    <?php }else{ ?>
     <a href="eljuegodelavida.php">
   <button>&lt; &lt; </button>
     <a href="eljuegodelavida.php">
@@ -53,5 +52,6 @@ $largo = $_GET["largo"];
         </tr>
         <?php } ?>
     </table>
+        <?php } ?>
 </body>
 </html>
