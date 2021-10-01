@@ -40,7 +40,7 @@ $largo = $_GET["largo"];
         echo '<tr>';
             for($x = 0;$x<$largo;$x++){
             echo '<td>
-            <input type="checkbox" name="tabla[$ancho][$largo]">
+            <input type="checkbox" name="tabla[<?=$x;?>][<?=$i;?>]">
             </td>';
             }
         echo'</tr>';
