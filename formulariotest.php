@@ -27,20 +27,19 @@ $largo = $_GET["largo"];
   <button>Atras</button>
 </a>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <?php if(($ancho<4) || ($ancho>500) || ($ancho==null) || ($largo<4) || ($largo<500) || ($largo==null)){ 
+    <?php if($ancho<4 || $ancho>500 || $ancho==null || $largo<4 || $largo<500 || $largo==null){ 
         echo '<div>test</div>';
      }else{ 
-   echo' <a href="eljuegodelavida.php">
+   echo '<a href="eljuegodelavida.php">
   <button>Play</button>
 </a>';
 
-    echo'<h3 class="ti" style="color:white"><center>Marque las cel·lulas vivas</center></h3>';
-    echo'<table class="center">';
-        
+    echo '<h3 class="ti" style="color:white"><center>Marque las cel·lulas vivas</center></h3>';
+    echo '<table class="center">';
         for($i = 0;$i<$ancho;$i++){
-        echo'<tr>';
+        echo '<tr>';
             for($x = 0;$x<$largo;$x++){
-            echo'<td>
+            echo '<td>
             <input type="checkbox" name="tabla[$x][$i]">
             </td>';
             }
