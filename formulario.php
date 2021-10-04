@@ -30,7 +30,7 @@ $largo = $_GET["largo"];
     <?php if($ancho<4 || $ancho>500 || $ancho==null || $largo<4 || $largo>500 || $largo==null){ 
         echo '<div style="color:red">Tamaño introducido es incorrecto, por favor pulse el boton "atras" y introduzca el tamaño entre 4 y 500 en X e Y</div>';
      }else{ 
-   echo '<script src="juego.php"></script>
+   echo '<a href="juego.php">
   <button>Play</button>
 </a>';
 
@@ -39,9 +39,9 @@ $largo = $_GET["largo"];
         for($i = 0;$i<$ancho;$i++){
         echo '<tr>';
             for($x = 0;$x<$largo;$x++){
-            echo '<td>
-            <input type="checkbox" name="tabla[<?=$x;?>][<?=$i;?>]">
-            </td>';
+            echo '<td>';
+            echo '<input type="checkbox" name="tabla[$x][$i>]">';
+            echo '</td>';
             }
         echo'</tr>';
         } 
