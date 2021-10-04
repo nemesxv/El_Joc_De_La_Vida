@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Tabla cel·lular</title>
+<title>Tabla celular</title>
     <style>
     .center {
   margin-left: auto;
@@ -21,6 +21,7 @@
 <?php
 $ancho = $_GET["ancho"];
 $largo = $_GET["largo"];
+    $tabla =$_GET["tabla"]
 ?>
 <body style="background-color:#202020;">
     <a href="eljuegodelavida.php">
@@ -28,9 +29,9 @@ $largo = $_GET["largo"];
 </a>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <?php if($ancho<4 || $ancho>500 || $ancho==null || $largo<4 || $largo>500 || $largo==null){ 
-        echo '<div>test</div>';
+        echo '<div style="color:red">Tamaño introducido es incorrecto, por favor pulse el boton "atras" y introduzca el tamaño entre 4 y 500 en X e Y</div>';
      }else{ 
-   echo '<a href="eljuegodelavida.php">
+   echo '<script src="code.js"></script>
   <button>Play</button>
 </a>';
 
@@ -39,9 +40,13 @@ $largo = $_GET["largo"];
         for($i = 0;$i<$ancho;$i++){
         echo '<tr>';
             for($x = 0;$x<$largo;$x++){
-            echo '<td>
-            <input type="checkbox" name="tabla[<?=$x;?>][<?=$i;?>]">
-            </td>';
+            echo '<td>';
+            if(isset($tabla[$x][$i])){
+                echo'<input type="checkbox" name="tabla[<?=$x;?>][<?=$i;?>]" checked>';
+            }else{
+                echo'<input type="checkbox" name="tabla[<?=$x;?>][<?=$i;?>]">';
+            }
+            echo'</td>';
             }
         echo'</tr>';
         } 

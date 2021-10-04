@@ -30,7 +30,7 @@ $largo = $_GET["largo"];
     <?php if($ancho<4 || $ancho>500 || $ancho==null || $largo<4 || $largo>500 || $largo==null){ 
         echo '<div style="color:red">Tamaño introducido es incorrecto, por favor pulse el boton "atras" y introduzca el tamaño entre 4 y 500 en X e Y</div>';
      }else{ 
-   echo '<a href="eljuegodelavida.php">
+   echo '<script src="juego.php"></script>
   <button>Play</button>
 </a>';
 
