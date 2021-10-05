@@ -21,6 +21,7 @@
 <?php
 $ancho = $_GET["ancho"];
 $largo = $_GET["largo"];
+
 ?>
 <body style="background-color:#202020;">
     <a href="eljuegodelavida.php">
@@ -40,7 +41,7 @@ $largo = $_GET["largo"];
         echo '<tr>';
             for($x = 0;$x<$largo;$x++){
             echo '<td>';
-            echo '<input type="checkbox" name="tabla[$x][$i>]">';
+            echo "<input type="checkbox" name="tabla[$x][$i]">";
             echo '</td>';
             }
         echo'</tr>';

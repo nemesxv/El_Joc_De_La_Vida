@@ -21,7 +21,7 @@
 <?php
 $ancho = $_GET["ancho"];
 $largo = $_GET["largo"];
-    $tabla =$_GET["tabla"]
+$tabla =$_GET["tabla"];
 ?>
 <body style="background-color:#202020;">
     <a href="eljuegodelavida.php">
