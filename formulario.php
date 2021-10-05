@@ -21,7 +21,6 @@
 <?php
 $ancho = $_GET["ancho"];
 $largo = $_GET["largo"];
-
 ?>
 <body style="background-color:#202020;">
     <a href="eljuegodelavida.php">
@@ -36,7 +35,10 @@ $largo = $_GET["largo"];
 </a>';
 
     echo '<h3 class="ti" style="color:white"><center>Marque las cel·lulas vivas</center></h3>';
-    echo '<table class="center">';
+    echo '<form action="formulario.php">';
+    echo "<inpu type='hidden' name='ancho' value='$ancho'>";
+    echo "<inpu type='hidden' name='largo' value='$largo'>";
+    echo '<tabtle class="center">';
         for($i = 0;$i<$ancho;$i++){
         echo '<tr>';
             for($x = 0;$x<$largo;$x++){
@@ -47,6 +49,7 @@ $largo = $_GET["largo"];
         echo'</tr>';
         } 
    echo '</table>';
+    echo '</form>';
  } ?>
 </body>
 </html>

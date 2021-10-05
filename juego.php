@@ -28,9 +28,7 @@ $tabla =$_GET["tabla"];
   <button>Atras</button>
 </a>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <?php if($ancho<4 || $ancho>500 || $ancho==null || $largo<4 || $largo>500 || $largo==null){ 
-        echo '<div style="color:red">Tamaño introducido es incorrecto, por favor pulse el boton "atras" y introduzca el tamaño entre 4 y 500 en X e Y</div>';
-     }else{ 
+    <?php  
    echo '<script src="code.js"></script>
   <button>Play</button>
 </a>';
@@ -42,15 +40,15 @@ $tabla =$_GET["tabla"];
             for($x = 0;$x<$largo;$x++){
             echo '<td>';
             if(isset($tabla[$x][$i])){
-                echo'<input type="checkbox" name="tabla[<?=$x;?>][<?=$i;?>]" checked>';
+                echo"<input type='checkbox' name='tabla[<?=$x;?>][<?=$i;?>]' checked>";
             }else{
-                echo'<input type="checkbox" name="tabla[<?=$x;?>][<?=$i;?>]">';
+                echo"<input type='checkbox' name='tabla[<?=$x;?>][<?=$i;?>]'>";
             }
             echo'</td>';
             }
         echo'</tr>';
         } 
    echo '</table>';
- } ?>
+  ?>
 </body>
 </html>
