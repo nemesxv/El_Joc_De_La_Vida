@@ -2,7 +2,6 @@
 <?php
 $ancho = $_GET["ancho"];
 $largo = $_GET["largo"];
-$tabla = $_GET["tabla"];
 ?>
 <html>
     <style>
@@ -108,7 +107,7 @@ $tabla = $_GET["tabla"];
       clearInterval(running);
       running = null;
     } else {
-      running = setInterval(turn, 400);
+      running = setInterval(turn, 1);
     }
   });
 </script>
