@@ -23,12 +23,15 @@ $largo = $_GET["largo"];
     </style>
 </head>
 <body style="background-color:#202020;">
+    <a href="eljuegodelavida.php">
+  <button>Atras</button>
+</a>
     <?php if($ancho<4 || $ancho>500 || $ancho==null || $largo<4 || $largo>500 || $largo==null){ 
         echo '<div style="color:red">Tamaño introducido es incorrecto, por favor pulse el boton "atras" y introduzca el tamaño entre 4 y 500 en X e Y</div>';
      }else{ ?>
 <script src="code/promise.js"></script>
 
-<div id="table" class="center"></div>
+<div id="table"></div>
 <button id="next">&gt;&gt;</button>
 <button id="run">Jugar/Pausar</button>
 
@@ -107,7 +110,7 @@ $largo = $_GET["largo"];
       clearInterval(running);
       running = null;
     } else {
-      running = setInterval(turn, 400);
+      running = setInterval(turn, 300);
     }
   });
 </script>
