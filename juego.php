@@ -37,8 +37,6 @@ $tabla = $_GET["tabla"];
   }
   function randomGrid() {
     var result = [];
-    for (var i = 0; i < width * height; i++)
-      result.push(Math.random() < 0.3);
     return result;
   }
 
