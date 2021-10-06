@@ -4,11 +4,10 @@
 <meta charset="utf-8">
 <title>Tabla celular</title>
     <style>
-    .center {
-  margin-left: auto;
-  margin-right: auto;
 }
-        table{
+        div{
+            display: table;
+            margin: 0 auto;
             border-collapse: collapse;
             line-height: 11px;
         }
