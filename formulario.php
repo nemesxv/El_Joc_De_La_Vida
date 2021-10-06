@@ -38,7 +38,7 @@ $largo = $_GET["largo"];
     echo '<form action="formulario.php">';
     echo "<inpu type='hidden' name='ancho' value='$ancho'>";
     echo "<inpu type='hidden' name='largo' value='$largo'>";
-    echo '<tabtle class="center">';
+    echo '<table class="center">';
         for($i = 0;$i<$ancho;$i++){
         echo '<tr>';
             for($x = 0;$x<$largo;$x++){
