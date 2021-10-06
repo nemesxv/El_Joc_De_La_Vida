@@ -1,4 +1,10 @@
 <!doctype html>
+<?php
+$ancho = $_GET["ancho"];
+$largo = $_GET["largo"];
+$tabla = $_GET["tabla"];
+setcookie($ancho, $largo, $tabla, time() + (86400 * 30));
+?>
 <html>
 <head>
 <meta charset="utf-8">
@@ -18,12 +24,7 @@
         }
     </style>
 </head>
-<?php
-$ancho = $_GET["ancho"];
-$largo = $_GET["largo"];
-$tabla =$_GET["tabla"];
-setcookie($ancho, $largo, $tabla);
-?>
+
 <body style="background-color:#202020;">
     <a href="eljuegodelavida.php">
   <button>Atras</button>
@@ -34,14 +35,13 @@ setcookie($ancho, $largo, $tabla);
   <button>Play</button>
 </a>'; 
         echo '<div class="center">';?>
-    <script>
     <?php
-echo "var ancho ='$ancho';";
-echo "var largo ='$largo';";
-echo "var tabla ='$tabla';";
-   ?>
-        console.log(jsvar); 
-    </script>    
-        
+if(!isset($_COOKIE[$cookie_name])) {
+  echo "Cookie named '" . $cookie_name . "' is not set!";
+} else {
+  echo "Cookie '" . $cookie_name . "' is set!<br>";
+  echo "Value is: " . $_COOKIE[$cookie_name];
+}
+?>
 </body>
 </html>
