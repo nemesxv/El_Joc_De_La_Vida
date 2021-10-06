@@ -6,7 +6,7 @@ $tabla = $_GET["tabla"];
 ?>
 <html>
     <style>
-        .grid{
+        #grid{
             display: table;
             margin: 0 auto;
             border-collapse: collapse;
