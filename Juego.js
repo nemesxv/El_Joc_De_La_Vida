@@ -1,2 +1,5 @@
-var x = document.cookie;
-        document.write(x);
+<?php
+echo "var ancho ='$ancho';";
+echo "var largo ='$largo';";
+echo "var tabla ='$tabla';";
+   ?>

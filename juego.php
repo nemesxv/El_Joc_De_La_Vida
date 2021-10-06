@@ -33,8 +33,15 @@ setcookie($ancho, $largo, $tabla);
    echo '<script src="Juego.js"></script>
   <button>Play</button>
 </a>'; 
-    if(!isset($_COOKIES[$cookie_name])) {
-            print("Cookie created | ");
-        }?>
+        echo '<div class="center">';?>
+    <script>
+    <?php
+echo "var ancho ='$ancho';";
+echo "var largo ='$largo';";
+echo "var tabla ='$tabla';";
+   ?>
+        console.log(jsvar); 
+    </script>    
+        
 </body>
 </html>
