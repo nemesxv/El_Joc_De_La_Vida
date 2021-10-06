@@ -2,38 +2,25 @@
 <?php
 $ancho = $_GET["ancho"];
 $largo = $_GET["largo"];
+$tabla = $_GET["tabla"];
 ?>
-<html>
-<head>
-<meta charset="utf-8">
-<title>Tabla celular</title>
-    <style>
-    .center {
-  margin-left: auto;
-  margin-right: auto;
-}
-        table{
+<style>
+        grid{
             border-collapse: collapse;
             line-height: 11px;
+            margin-left: auto;
+  margin-right: auto;
         }
         input{
             padding: 0;
             margin: 0;
         }
     </style>
-</head>
-<body style="background-color:#202020;">
-    <a href="eljuegodelavida.php">
-  <button>Atras</button>
-</a>
-    <?php if($ancho<4 || $ancho>500 || $ancho==null || $largo<4 || $largo>500 || $largo==null){ 
-        echo '<div style="color:red">Tamaño introducido es incorrecto, por favor pulse el boton "atras" y introduzca el tamaño entre 4 y 500 en X e Y</div>';
-     }else{ ?>
 <script src="code/promise.js"></script>
 
-<div id="table"></div>
+<div id="grid"></div>
 <button id="next">&gt;&gt;</button>
-<button id="run">Jugar/Pausar</button>
+<button id="run">Auto run</button>
 
 <script>
   var width = "<?php echo"$ancho"?>";
@@ -110,9 +97,7 @@ $largo = $_GET["largo"];
       clearInterval(running);
       running = null;
     } else {
-      running = setInterval(turn, 300);
+      running = setInterval(turn, 400);
     }
   });
 </script>
-    <?php }?>
-    </body></html>
