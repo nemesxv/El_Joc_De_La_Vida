@@ -30,12 +30,9 @@ $largo = $_GET["largo"];
     <?php if($ancho<4 || $ancho>500 || $ancho==null || $largo<4 || $largo>500 || $largo==null){ 
         echo '<div style="color:red">Tamaño introducido es incorrecto, por favor pulse el boton "atras" y introduzca el tamaño entre 4 y 500 en X e Y</div>';
      }else{ 
-   echo '<a href="juego.php">
-  <button>Play</button>
-</a>';
-
     echo '<h3 class="ti" style="color:white"><center>Marque las cel·lulas vivas</center></h3>';
-    echo '<form action="formulario.php">';
+    echo '<form method="get" action="juego.php">';
+    echo '<input type="submit" value="Generar">';
     echo "<input type='hidden' name='ancho' value='$ancho'>";
     echo "<input type='hidden' name='largo' value='$largo'>";
     echo '<table class="center">';

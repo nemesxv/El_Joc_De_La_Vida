@@ -29,7 +29,7 @@ $tabla =$_GET["tabla"];
 </a>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <?php  
-   echo '<script src="code.js"></script>
+   echo '<script src="Juego.js"></script>
   <button>Play</button>
 </a>';
 
