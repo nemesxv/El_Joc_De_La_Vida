@@ -36,7 +36,9 @@ $tabla = $_GET["tabla"];
     return grid.forEach(function(value, i) { checkboxes[i].checked = value; });
   }
   function randomGrid() {
-    var result = ["<?php echo"$tabla"?>";];
+    var result = [];
+    for (var i = 0; i < width * height; i++)
+      result.push(Math.random() < 0.3);
     return result;
   }
 
