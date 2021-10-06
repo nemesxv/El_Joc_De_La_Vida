@@ -22,6 +22,8 @@ $tabla = $_GET["tabla"];
   <button>Atras</button>
 </a>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button id="run">Auto run</button>
+    <button id="next">&gt;&gt;</button>
     <?php if($ancho<4 || $ancho>500 || $ancho==null || $largo<4 || $largo>500 || $largo==null){ 
         echo '<div style="color:red">Tamaño introducido es incorrecto, por favor pulse el boton "atras" y introduzca el tamaño entre 4 y 500 en X e Y</div>';
      }else{ ?>
@@ -29,8 +31,7 @@ $tabla = $_GET["tabla"];
 <script src="code/promise.js"></script>
 
 <div id="grid"></div>
-<button id="next">&gt;&gt;</button>
-<button id="run">Auto run</button>
+
 
 <script>
   var width = "<?php echo"$ancho"?>";
