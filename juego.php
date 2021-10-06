@@ -2,7 +2,6 @@
 <?php
 $ancho = $_GET["ancho"];
 $largo = $_GET["largo"];
-$tabla = $_GET["tabla"];
 ?>
 <html>
 <head>
@@ -23,15 +22,15 @@ $tabla = $_GET["tabla"];
         }
     </style>
 </head>
-<body>
+<body style="background-color:#202020;">
     <?php if($ancho<4 || $ancho>500 || $ancho==null || $largo<4 || $largo>500 || $largo==null){ 
         echo '<div style="color:red">Tamaño introducido es incorrecto, por favor pulse el boton "atras" y introduzca el tamaño entre 4 y 500 en X e Y</div>';
      }else{ ?>
 <script src="code/promise.js"></script>
 
-<div id="grid"></div>
+<div id="table" class="center"></div>
 <button id="next">&gt;&gt;</button>
-<button id="run">Auto run</button>
+<button id="run">Jugar/Pausar</button>
 
 <script>
   var width = "<?php echo"$ancho"?>";
