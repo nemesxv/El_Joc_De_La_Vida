@@ -5,12 +5,12 @@ $largo = $_GET["largo"];
 $tabla = $_GET["tabla"];
 ?>
 <html>
-<style>
+    <style>
         .grid{
+            display: table;
+            margin: 0 auto;
             border-collapse: collapse;
             line-height: 11px;
-            margin-left: auto;
-            margin-right: auto;
         }
         input{
             padding: 0;

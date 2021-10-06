@@ -5,7 +5,7 @@
 <title>Tabla celular</title>
     <style>
 }
-        div{
+        .grid{
             display: table;
             margin: 0 auto;
             border-collapse: collapse;
