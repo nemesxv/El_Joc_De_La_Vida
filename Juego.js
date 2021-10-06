@@ -1,5 +1,2 @@
-<?php
-echo "var ancho ='$ancho';";
-echo "var largo ='$largo';";
-echo "var tabla ='$tabla';";
-   ?>
+var tabla = json_decode($_COOKIE['tabla'], true);
+var tamano = json_decode($_COOKIE['tamano'], true);
