@@ -4,18 +4,28 @@ $ancho = $_GET["ancho"];
 $largo = $_GET["largo"];
 $tabla = $_GET["tabla"];
 ?>
+<html>
 <style>
-        grid{
+        .grid{
             border-collapse: collapse;
             line-height: 11px;
             margin-left: auto;
-  margin-right: auto;
+            margin-right: auto;
         }
         input{
             padding: 0;
             margin: 0;
         }
     </style>
+<body style="background-color:#202020;">
+    <a href="eljuegodelavida.php">
+  <button>Atras</button>
+</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <?php if($ancho<4 || $ancho>500 || $ancho==null || $largo<4 || $largo>500 || $largo==null){ 
+        echo '<div style="color:red">Tamaño introducido es incorrecto, por favor pulse el boton "atras" y introduzca el tamaño entre 4 y 500 en X e Y</div>';
+     }else{ ?>
+    <h3 class="ti" style="color:white"><center>Marque las cel·lulas vivas</center></h3>
 <script src="code/promise.js"></script>
 
 <div id="grid"></div>
@@ -101,3 +111,6 @@ $tabla = $_GET["tabla"];
     }
   });
 </script>
+    <?php } ?>
+</body>
+</html>
