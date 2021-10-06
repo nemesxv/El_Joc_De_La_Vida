@@ -4,6 +4,29 @@ $ancho = $_GET["ancho"];
 $largo = $_GET["largo"];
 $tabla = $_GET["tabla"];
 ?>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Tabla celular</title>
+    <style>
+    .center {
+  margin-left: auto;
+  margin-right: auto;
+}
+        table{
+            border-collapse: collapse;
+            line-height: 11px;
+        }
+        input{
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <?php if($ancho<4 || $ancho>500 || $ancho==null || $largo<4 || $largo>500 || $largo==null){ 
+        echo '<div style="color:red">Tamaño introducido es incorrecto, por favor pulse el boton "atras" y introduzca el tamaño entre 4 y 500 en X e Y</div>';
+     }else{ ?>
 <script src="code/promise.js"></script>
 
 <div id="grid"></div>
@@ -89,3 +112,5 @@ $tabla = $_GET["tabla"];
     }
   });
 </script>
+    <?php }?>
+    </body></html>

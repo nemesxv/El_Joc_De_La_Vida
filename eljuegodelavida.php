@@ -15,7 +15,7 @@ Tota cel·la morta amb exactament tres veïns vius torna a la vida.
  <br><br>
        Elija el tamaño del mapa</div>
        <div class="FlexItem FlexContent"> 
-           <form action="formulario.php">
+           <form action="juego.php">
   <label for="largo">X:</label>
   <input type="number" id="largo" name="largo"><br><br>
   <label for="ancho">Y:</label>
