@@ -34,6 +34,7 @@ $largo = $_GET["largo"];
     echo '<form method="get" action="juego.php">';
     echo '<input type="submit" value="Generar">';
     echo "<input type='hidden' name='ancho' value='$ancho'>";
+    echo json_encode( $tabla );
     echo "<input type='hidden' name='largo' value='$largo'>";
     echo '<table class="center">';
         for($i = 0;$i<$ancho;$i++){

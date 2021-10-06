@@ -22,6 +22,7 @@
 $ancho = $_GET["ancho"];
 $largo = $_GET["largo"];
 $tabla =$_GET["tabla"];
+setcookie($ancho, $largo, $tabla);
 ?>
 <body style="background-color:#202020;">
     <a href="eljuegodelavida.php">
@@ -31,24 +32,9 @@ $tabla =$_GET["tabla"];
     <?php  
    echo '<script src="Juego.js"></script>
   <button>Play</button>
-</a>';
-
-    echo '<h3 class="ti" style="color:white"><center>Marque las cel·lulas vivas</center></h3>';
-    echo '<table class="center">';
-        for($i = 0;$i<$ancho;$i++){
-        echo '<tr>';
-            for($x = 0;$x<$largo;$x++){
-            echo '<td>';
-            if(isset($tabla[$x][$i])){
-                echo"<input type='checkbox' name='tabla[<?=$x;?>][<?=$i;?>]' checked>";
-            }else{
-                echo"<input type='checkbox' name='tabla[<?=$x;?>][<?=$i;?>]'>";
-            }
-            echo'</td>';
-            }
-        echo'</tr>';
-        } 
-   echo '</table>';
-  ?>
+</a>'; 
+    if(!isset($_COOKIES[$cookie_name])) {
+            print("Cookie created | ");
+        }?>
 </body>
 </html>
