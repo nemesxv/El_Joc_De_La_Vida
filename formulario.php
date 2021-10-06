@@ -36,8 +36,8 @@ $largo = $_GET["largo"];
 
     echo '<h3 class="ti" style="color:white"><center>Marque las cel·lulas vivas</center></h3>';
     echo '<form action="formulario.php">';
-    echo "<inpu type='hidden' name='ancho' value='$ancho'>";
-    echo "<inpu type='hidden' name='largo' value='$largo'>";
+    echo "<input type='hidden' name='ancho' value='$ancho'>";
+    echo "<input type='hidden' name='largo' value='$largo'>";
     echo '<table class="center">';
         for($i = 0;$i<$ancho;$i++){
         echo '<tr>';
