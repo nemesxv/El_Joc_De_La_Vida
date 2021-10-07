@@ -106,11 +106,11 @@ $largo = $_GET["largo"];
   }
 
   function turn() {
-      turno++;
+      (turno=turno+1);
     checkboxesFromGrid(nextGeneration(gridFromCheckboxes()));
   }
     function reseteo(){
-        turno=0;
+        (turno=0);
         checkboxesFromGrid(var result = []);
     }
 
