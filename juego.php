@@ -1,116 +1,206 @@
-<!doctype html>
-<?php
-$ancho = $_GET["ancho"];
-$largo = $_GET["largo"];
-?>
 <html>
-    <style>
-        #grid{
-            display: table;
-            margin: 0 auto;
-            border-collapse: collapse;
-            line-height: 11px;
+<head>
+    <title>Conway's game of life</title>
+    <style type="text/css">
+        h1 {
+            margin-top : 50px;
+            font-family : Cardo;
         }
-        input{
-            padding: 0;
-            margin: 0;
+        #world{
+            width : 800px;
+            height : 400px;
+            margin : 0 auto;
+            margin-top :100px;
+            padding : 0px;
         }
+
+        input[type="checkbox"] {
+            margin : 0px;
+            margin-top : 5px;
+            margin-left : 5px;
+        }
+
+
     </style>
-<body style="background-color:#202020;">
-    <a href="eljuegodelavida.php">
-  <button>Atras</button>
-</a>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <button id="run">Auto run</button>
-    <button id="next">&gt;&gt;</button>
-    <?php if($ancho<4 || $ancho>500 || $ancho==null || $largo<4 || $largo>500 || $largo==null){ 
-        echo '<div style="color:red">Tamaño introducido es incorrecto, por favor pulse el boton "atras" y introduzca el tamaño entre 4 y 500 en X e Y</div>';
-     }else{ ?>
-    <h3 class="ti" style="color:white"><center>Marque las cel·lulas vivas</center></h3>
-<script src="code/promise.js"></script>
+</head>
 
-<div id="grid"></div>
+<body>
+    <center>
+        <h1>Conway's game of life</h1>
+    </center>
+    <div id="world">
+    </div>
+    <script type = "text/javascript">
+        'use strict';
+        // World is represented by a div and cells in the world are represented by checkboxes 
+
+        // As defined by the browser default styles at zoom level of 100%
+        var WIDTH_CELL = 17;
+        var HEIGHT_CELL  = 17;
+
+        // Div that holds the world of the cells
+        var world = document.querySelector("#world");
+        var HEIGHT_WORLD = world.getBoundingClientRect().height;
+        var WIDTH_WORLD = world.getBoundingClientRect().width;
 
 
-<script>
-  var width = "<?php echo"$ancho"?>";
-  var height = "<?php echo"$largo"?>";
+        var NUM_ROWS = Math.floor(HEIGHT_WORLD / HEIGHT_CELL);
+        var NUM_COLS = Math.floor(WIDTH_WORLD / WIDTH_CELL);
+        var NUM_CELLS = NUM_ROWS * NUM_COLS;
 
-  // I will represent the grid as an array of booleans.
+        // Holds every cell element that exists in the DOM 
+        var cells = []; 
+        // Fill the world with cells 
+        for (var i = 0 ; i < NUM_CELLS ; i++) {
+            var newCell = getNewCell();
+            addNewCellToWorld(world, newCell);
+            cells.push(newCell);
+        }
 
-  var gridNode = document.querySelector("#grid");
-  // This holds the checkboxes that display the grid in the document.
-  var checkboxes = [];
-  for (var y = 0; y < height; y++) {
-    for (var x = 0; x < width; x++) {
-      var box = document.createElement("input");
-      box.type = "checkbox";
-      gridNode.appendChild(box);
-      checkboxes.push(box);
-    }
-    gridNode.appendChild(document.createElement("br"));
-  }
+        /*
+         The rules are as follows
+         1 . Any live cell with fewer than two or more than three live neighbors dies
+         2 . Any live cell with two or three live neighbors lives on to the next generation
+         3 . Any dead cell with three live neighbors becomes alive
+        */
 
-  function gridFromCheckboxes() {
-    return checkboxes.map(function(box) { return box.checked; });
-  }
-  function checkboxesFromGrid(grid) {
-    return grid.forEach(function(value, i) { checkboxes[i].checked = value; });
-  }
-  function randomGrid() {
-    var result = [];
-    return result;
-  }
+        function incrementGeneration() {
+            var cellsThatLive = [];
+            var cellsThatDie = [];
+            for(var currentCell = 0 ; currentCell < cells.length ; currentCell++){
+                var numLiveNeighbors = getLiveNeighborsCount(currentCell);
+                if(isAlive(currentCell)) {
+                    if(numLiveNeighbors < 2 || numLiveNeighbors > 3)
+                        cellsThatDie.push(currentCell);
+                    else if(numLiveNeighbors === 2 || numLiveNeighbors === 3)
+                        cellsThatLive.push(currentCell);
+                }else{
+                    if(numLiveNeighbors === 3)
+                        cellsThatLive.push(currentCell);
+                }
+            }
 
-  checkboxesFromGrid(randomGrid());
+            for(var i  = 0 ;i < cellsThatLive.length ; i++)
+                cells[cellsThatLive[i]].checked = true;
+            for(var j  = 0 ;j < cellsThatDie.length ; j++)
+                cells[cellsThatDie[j]].checked = false;
 
-  // This does a two-dimensional loop over the square around the given
-  // x,y position, counting all fields that have a cell but are not the
-  // center field.
-  function countNeighbors(grid, x, y) {
-    var count = 0;
-    for (var y1 = Math.max(0, y - 1); y1 <= Math.min(height, y + 1); y1++) {
-      for (var x1 = Math.max(0, x - 1); x1 <= Math.min(width, x + 1); x1++) {
-        if ((x1 != x || y1 != y) && grid[x1 + y1 * width])
-          count +=1 ;
-      }
-    }
-    return count;
-  }
+        }
 
-  function nextGeneration(grid) {
-    var newGrid = new Array(width * height);
-    for (var y = 0; y < height; y++) {
-      for (var x = 0; x < width; x++) {
-        var neighbors = countNeighbors(grid, x, y);
-        var offset = x + y * width;
-        if (neighbors < 2 || neighbors > 3)
-          newGrid[offset] = false;
-        else if (neighbors == 2)
-          newGrid[offset] = grid[offset];
-        else
-          newGrid[offset] = true;
-      }
-    }
-    return newGrid;
-  }
+        setInterval(function(){
+            incrementGeneration();
+        }, 150);
 
-  function turn() {
-    checkboxesFromGrid(nextGeneration(gridFromCheckboxes()));
-  }
 
-  document.querySelector("#next").addEventListener("click", turn);
+        // Vector that holds the position of the cell in form of x and y coordinates in the world
+        function Vector(x, y) {
+            this.x = x;
+            this.y = y;
+        }
 
-  var running = null;
-  document.querySelector("#run").addEventListener("click", function() {
-    if (running) {
-      clearInterval(running);
-      running = null;
-    } else {
-      running = setInterval(turn, 1);
-    }
-  });
-</script>
-    <?php } ?>
+        Vector.prototype.add = function(otherVector) {
+            return (new Vector(this.x + otherVector.x, this.y + otherVector.y));
+        }
+        Vector.prototype.subtract = function(otherVector) {
+            return (new Vector(this.x - otherVector.x, this.y - otherVectory.y));
+        }
+
+        var neighborDirections = {
+            "n" : new Vector(0, 1),
+            "e" : new Vector(1, 0),
+            "s" : new Vector(0, -1),
+            "w" : new Vector(-1, 0),
+            "ne" : new Vector(1, 1),
+            "nw" : new Vector(-1, 1),
+            "se" : new Vector(1, -1),
+            "sw" : new Vector(-1, -1)
+        };
+
+        /*
+        * Function : getLiveNeighborsCount(one dimensional index of the cell whose neighbors are to be found)
+        * ------------------------------------------------------------------------------------------
+        * Returns the neighboring (directly touching even the diagonal ones) cells of the cell whose
+        * neighbors are asked for. 
+        * Returns the number of live neighbors the current cell under consideration has
+        */
+        function getLiveNeighborsCount(cellIndex) {
+            var neighbors = [];
+            var currentCellVector = getVectorFromIndex(cellIndex);
+            for(var direction in neighborDirections) {
+                addNeighborIfValid(neighbors, currentCellVector.add(neighborDirections[direction]));
+            }
+            return neighbors.length;
+        }
+
+
+        /*
+        * Function : addNeighborIfValid(list of neighbors(array), the vector containing position of the passed neighbor)
+        * --------------------------------------------------------------------------------------------------------------
+        * Checks if the passed in neighbor is a valid neighbor. A valid neighbor is one which is inside the bounds of 
+        * the world and not outside of it and the one that is alive is only considered a neighbor.
+        * If the neighbor is a valid one then adds it to the list of neighbors and does nothing otherwise
+        */
+        function addNeighborIfValid(neighborsList, neighborVector) {
+            if(isInBounds(neighborVector) && isAlive(getIndexFromVector(neighborVector)))
+                neighborsList.push(getIndexFromVector(neighborVector));
+        }
+
+        function isAlive(cellIndex) {
+            return (cells[cellIndex].checked);
+        }
+
+        /*
+        * Function : isInBounds(vector on which the check is to be applied)
+        * -----------------------------------------------------------------
+        * 
+        */
+        function isInBounds(vector) {
+            return ((vector.x >= 0 && vector.x <= NUM_COLS - 1) && (vector.y >= 0 && vector.y <= NUM_ROWS - 1));
+        }
+
+        /*
+        * Function : getVectorFromIndex(index of the element in the array i.e flatIndex)
+        * --------------------------------------------------------------------------------
+        * Converts a simple flat index into coordinates in two dimensions and returns a 
+        * vector object of with those parameters.
+        */
+        function getVectorFromIndex(flatIndex) {
+            var xCoord = flatIndex % NUM_COLS;
+            var yCoord = (flatIndex - xCoord) / NUM_COLS;
+            return (new Vector(xCoord, yCoord));
+        }
+
+        /*
+        * Function : getIndexFromVector(vector which is to be converted to a one dimensional index)
+        * -----------------------------------------------------------------------------------------
+        */
+        function getIndexFromVector(vector) {
+            return (NUM_COLS * vector.y + vector.x);
+        }
+
+        /*
+        * Function : addNewCellToWorld(div element that acts like world, checkbox element that acts as a cell)
+        * -----------------------------------------------------------------------------------------------------
+        */
+        function addNewCellToWorld(world, cell) {
+            world.appendChild(cell);
+        }
+
+        /*
+        * Function : getNewCell()
+        * Usage    : world.appendChild(newCell());
+        * --------------------------------------------
+        * Creates and returns a checkbox element that 
+        * is considered as a cell in the program.
+        * Returns on random, checked or unchecked cell
+        * checked means alive and unchecked means dead
+        */
+        function getNewCell() {
+            var newCell = document.createElement("input");
+            newCell.type = "checkbox";
+            newCell.checked = (Math.random() > 0.5)
+            return newCell;
+        }
+    </script>
 </body>
 </html>
