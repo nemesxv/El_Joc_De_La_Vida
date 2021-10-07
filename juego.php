@@ -2,6 +2,7 @@
 <?php
 $ancho = $_GET["ancho"];
 $largo = $_GET["largo"];
+$vel = $_GET["velocidad"];
 ?>
 <html>
     <style>
@@ -26,7 +27,7 @@ $largo = $_GET["largo"];
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
    
 </form>
-    <?php if($ancho<4 || $ancho>500 || $ancho==null || $largo<4 || $largo>500 || $largo==null){ 
+    <?php if($ancho<4 || $ancho>500 || $ancho==null || $largo<4 || $largo>500 || $largo==null || $vel==null){ 
         echo '<div style="color:red">Tamaño introducido es incorrecto, por favor pulse el boton "atras" y introduzca el tamaño entre 4 y 500 en X e Y</div>';
      }else{ ?>
     <h3 class="ti" style="color:white"><center>Marque las cel·lulas vivas</center></h3>
@@ -42,9 +43,9 @@ $largo = $_GET["largo"];
   var width = "<?php echo"$ancho"?>";
   var height = "<?php echo"$largo"?>";
     var turno = 1;
-    var vivas;
-    var muertas;
-    var velocidad = 15;;
+    var vivas=0;
+    var muertas=0;
+    var velocidad = "<?php echo"$vel"?>";
 
   // I will represent the grid as an array of booleans.
 
@@ -67,11 +68,13 @@ $largo = $_GET["largo"];
   function checkboxesFromGrid(grid) {
     return grid.forEach(function(value, i) { checkboxes[i].checked = value; });
   }
+     document.querySelector("#reset").addEventListener("click", randomGrid);
   function randomGrid() {
     var result = [];
+      turno=1;
     return result;
   }
-
+     
   checkboxesFromGrid(randomGrid());
 
   // This does a two-dimensional loop over the square around the given
@@ -106,6 +109,7 @@ $largo = $_GET["largo"];
   }
 
   function turn() {
+      turno++;
     checkboxesFromGrid(nextGeneration(gridFromCheckboxes()));
   }
 
