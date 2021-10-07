@@ -32,6 +32,8 @@ $largo = $_GET["largo"];
     <h3 class="ti" style="color:white"><center>Marque las cel·lulas vivas</center></h3>
 
  <button id="reset">reset</button>
+    <button id="mas">Vel +</button>
+    <button id="menos">Vel -</button>
 
 <div id="grid"></div>
 
@@ -42,7 +44,7 @@ $largo = $_GET["largo"];
     var turno = 1;
     var vivas=0;
     var muertas=0;
-    var velocidad = 15;
+    var velocidad = 150;
 
   // I will represent the grid as an array of booleans.
 
@@ -111,17 +113,38 @@ $largo = $_GET["largo"];
     }
 
   document.querySelector("#next").addEventListener("click", turn);
-    document.querySelector("#reset").addEventListener("click", reseteo);
+  document.querySelector("#reset").addEventListener("click", reseteo);
+  document.querySelector("#mas").addEventListener("click", aumentar);
+  document.querySelector("#menos").addEventListener("click", reducir);
 
   var running = null;
+    function aumentar(){
+        if (running) {
+              clearInterval(running);
+              running = null;
+            } else {
+                clearInterval(running);
+              running = setInterval(turn, (velocidad=velocidad+50);
+            }    
+    }
+    function reducir(){
+        if (running) {
+              clearInterval(running);
+              running = null;
+            } else {
+                clearInterval(running);
+              running = setInterval(turn, (velocidad=velocidad-50));
+            }
+    }
   document.querySelector("#run").addEventListener("click", function() {
     if (running) {
       clearInterval(running);
       running = null;
     } else {
-      running = setInterval(turn, 1);
+      running = setInterval(turn, velocidad);
     }
   });
+    
 </script>
     <?php } ?>
 </body>
