@@ -72,12 +72,7 @@ $largo = $_GET["largo"];
       turno=1;
     return result;
   }
-    function randomGridr() {
-    var result = [];
-        turno=1;
-    for (var i = 0; i < width * height; i++)
-      result.push(Math.random() < 0.3);
-    return result;
+    
      
   checkboxesFromGrid(randomGrid());
 
@@ -119,7 +114,12 @@ $largo = $_GET["largo"];
 
     document.querySelector("#next").addEventListener("click", turn);
     document.querySelector("#reset").addEventListener("click", randomGrid);
-    document.querySelector("#rand").addEventListener("click", randomGridr);
+    document.querySelector("#rand").addEventListener("click", function() {
+    var result = [];
+        turno=1;
+    for (var i = 0; i < width * height; i++)
+      result.push(Math.random() < 0.3);
+    return result});
 
   var running = null;
   document.querySelector("#run").addEventListener("click", function() {
