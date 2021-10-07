@@ -2,7 +2,6 @@
 <?php
 $ancho = $_GET["ancho"];
 $largo = $_GET["largo"];
-$vel = $_GET["velocidad"];
 ?>
 <html>
     <style>
@@ -27,7 +26,7 @@ $vel = $_GET["velocidad"];
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
    
 </form>
-    <?php if($ancho<4 || $ancho>500 || $ancho==null || $largo<4 || $largo>500 || $largo==null || $vel==null){ 
+    <?php if($ancho<4 || $ancho>500 || $ancho==null || $largo<4 || $largo>500 || $largo==null){ 
         echo '<div style="color:red">Tamaño introducido es incorrecto, por favor pulse el boton "atras" y introduzca el tamaño entre 4 y 500 en X e Y</div>';
      }else{ ?>
     <h3 class="ti" style="color:white"><center>Marque las cel·lulas vivas</center></h3>
