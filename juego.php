@@ -31,7 +31,7 @@ $largo = $_GET["largo"];
      }else{ ?>
     <h3 class="ti" style="color:white"><center>Marque las cel·lulas vivas</center></h3>
 
- <button id="reset">reset</button>
+<button id="reset">reset</button>
     <button id="mas">Vel +</button>
     <button id="menos">Vel -</button>
 
@@ -106,10 +106,12 @@ $largo = $_GET["largo"];
   }
 
   function turn() {
+      turno++;
     checkboxesFromGrid(nextGeneration(gridFromCheckboxes()));
   }
     function reseteo(){
-        checkboxesFromGrid(randomGrid());
+        turno=0;
+        checkboxesFromGrid(var result = []);
     }
 
   document.querySelector("#next").addEventListener("click", turn);
@@ -120,11 +122,11 @@ $largo = $_GET["largo"];
   var running = null;
     function aumentar(){
                 clearInterval(running);
-              running = setInterval(turn, (velocidad=velocidad+50));
+              running = setInterval(turn, (velocidad=velocidad+25));
             }    
     function reducir(){
                 clearInterval(running);
-              running = setInterval(turn, (velocidad=velocidad-50));
+              running = setInterval(turn, (velocidad=velocidad-25));
             }
   document.querySelector("#run").addEventListener("click", function() {
     if (running) {
@@ -136,6 +138,6 @@ $largo = $_GET["largo"];
   });
     
 </script>
-    <?php } ?>
+<?php } ?>
 </body>
 </html>
