@@ -119,23 +119,13 @@ $largo = $_GET["largo"];
 
   var running = null;
     function aumentar(){
-        if (running) {
-              clearInterval(running);
-              running = null;
-            } else {
                 clearInterval(running);
               running = setInterval(turn, (velocidad=velocidad+50));
             }    
-    }
     function reducir(){
-        if (running) {
-              clearInterval(running);
-              running = null;
-            } else {
                 clearInterval(running);
               running = setInterval(turn, (velocidad=velocidad-50));
             }
-    }
   document.querySelector("#run").addEventListener("click", function() {
     if (running) {
       clearInterval(running);
