@@ -111,7 +111,7 @@ $largo = $_GET["largo"];
   }
     function reseteo(){
         (turno=0);
-        checkboxesFromGrid(var result = []);
+        checkboxesFromGrid(result = []);
     }
 
   document.querySelector("#next").addEventListener("click", turn);
