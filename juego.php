@@ -31,10 +31,9 @@ $largo = $_GET["largo"];
      }else{ ?>
     <h3 class="ti" style="color:white"><center>Marque las cel·lulas vivas</center></h3>
 <script src="code/promise.js"></script>
- <button id="resetear">reset</button>
-    <form action="juego.php">
-    <label for="vel">Velocidad:</label><input type="number" id="vel" name="vel"><br><br>
-    <input type="submit" value="Aplicar">
+ <button id="reset">reset</button>
+    <button id="rand">aleatorio</button>
+
 <div id="grid"></div>
 
 
@@ -44,7 +43,7 @@ $largo = $_GET["largo"];
     var turno = 1;
     var vivas=0;
     var muertas=0;
-    var velocidad = "<?php echo"$vel"?>";
+    var velocidad = 15;
 
   // I will represent the grid as an array of booleans.
 
@@ -67,12 +66,18 @@ $largo = $_GET["largo"];
   function checkboxesFromGrid(grid) {
     return grid.forEach(function(value, i) { checkboxes[i].checked = value; });
   }
-     document.querySelector("#reset").addEventListener("click", randomGrid);
+     
   function randomGrid() {
     var result = [];
       turno=1;
     return result;
   }
+    function randomGridr() {
+    var result = [];
+        turno=1;
+    for (var i = 0; i < width * height; i++)
+      result.push(Math.random() < 0.3);
+    return result;
      
   checkboxesFromGrid(randomGrid());
 
@@ -112,7 +117,9 @@ $largo = $_GET["largo"];
     checkboxesFromGrid(nextGeneration(gridFromCheckboxes()));
   }
 
-  document.querySelector("#next").addEventListener("click", turn);
+    document.querySelector("#next").addEventListener("click", turn);
+    document.querySelector("#reset").addEventListener("click", randomGrid);
+    document.querySelector("#rand").addEventListener("click", randomGridr);
 
   var running = null;
   document.querySelector("#run").addEventListener("click", function() {
