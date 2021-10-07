@@ -45,9 +45,7 @@ $largo = $_GET["largo"];
     var vivas=12;
     var muertas=13;
     var velocidad = 150;
-    document.write(turno);
-    document.write(vivas);
-    document.write(muertas);
+
 
   // I will represent the grid as an array of booleans.
 
@@ -114,7 +112,7 @@ $largo = $_GET["largo"];
   }
     function reseteo(){
         (turno=0);
-        checkboxesFromGrid();
+        checkboxesFromGrid(newGrid = new Array(width * height));
     }
 
   document.querySelector("#next").addEventListener("click", turn);
@@ -125,12 +123,14 @@ $largo = $_GET["largo"];
 
   var running = null;
     function aumentar(){
-              running = setInterval(turn, (velocidad=velocidad-25));
         clearInterval(running);
+              running = setInterval(turn, (velocidad=velocidad-25));
+        
             }    
     function reducir(){
-              running = setInterval(turn, (velocidad=velocidad+25));
         clearInterval(running);
+              running = setInterval(turn, (velocidad=velocidad+25));
+        
             }
   document.querySelector("#run").addEventListener("click", function() {
     if (running) {
