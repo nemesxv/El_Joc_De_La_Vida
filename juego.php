@@ -30,7 +30,6 @@ $largo = $_GET["largo"];
         echo '<div style="color:red">Tamaño introducido es incorrecto, por favor pulse el boton "atras" y introduzca el tamaño entre 4 y 500 en X e Y</div>';
      }else{ ?>
     <h3 class="ti" style="color:white"><center>Marque las cel·lulas vivas</center></h3>
-<script src="code/promise.js"></script>
  <button id="reset">reset</button>
     <button id="rand">aleatorio</button>
 
@@ -113,13 +112,13 @@ $largo = $_GET["largo"];
   }
 
     document.querySelector("#next").addEventListener("click", turn);
-    document.querySelector("#reset").addEventListener("click", checkboxesFromGrid);
-    document.querySelector("#rand").addEventListener("click", function() {
+    document.querySelector("#reset").addEventListener("click", randomGrid, checkboxesFromGrid(randomGrid()););
+    document.querySelector("#rand").addEventListener("click", function() randomGridr{
     var result = [];
         turno=1;
     for (var i = 0; i < width * height; i++)
       result.push(Math.random() < 0.3);
-    return result});
+    return result}checkboxesFromGrid(randomGridr()););
 
   var running = null;
   document.querySelector("#run").addEventListener("click", function() {
