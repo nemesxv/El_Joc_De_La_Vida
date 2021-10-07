@@ -124,7 +124,7 @@ $largo = $_GET["largo"];
               running = null;
             } else {
                 clearInterval(running);
-              running = setInterval(turn, (velocidad=velocidad+50);
+              running = setInterval(turn, (velocidad=velocidad+50));
             }    
     }
     function reducir(){
