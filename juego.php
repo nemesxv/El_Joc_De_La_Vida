@@ -32,7 +32,6 @@ $largo = $_GET["largo"];
     <h3 class="ti" style="color:white"><center>Marque las cel·lulas vivas</center></h3>
 
  <button id="reset">reset</button>
-    <button id="rand">aleatorio</button>
 
 <div id="grid"></div>
 
@@ -107,8 +106,12 @@ $largo = $_GET["largo"];
   function turn() {
     checkboxesFromGrid(nextGeneration(gridFromCheckboxes()));
   }
+    function reseteo(){
+        checkboxesFromGrid(randomGrid());
+    }
 
   document.querySelector("#next").addEventListener("click", turn);
+    document.querySelector("#reset").addEventListener("click", reseteo);
 
   var running = null;
   document.querySelector("#run").addEventListener("click", function() {
