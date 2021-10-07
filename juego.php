@@ -113,13 +113,7 @@ $largo = $_GET["largo"];
   }
 
     document.querySelector("#next").addEventListener("click", turn);
-    document.querySelector("#reset").addEventListener("click", checkboxesFromGrid);
-    document.querySelector("#rand").addEventListener("click", function() {
-    var result = [];
-        turno=1;
-    for (var i = 0; i < width * height; i++)
-      result.push(Math.random() < 0.3);
-    return result});
+    document.querySelector("#reset").addEventListener("click", checkboxesFromGrid(randomGrid());
 
   var running = null;
   document.querySelector("#run").addEventListener("click", function() {
