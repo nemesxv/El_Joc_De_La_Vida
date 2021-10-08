@@ -17,9 +17,21 @@ Tota cel·la morta amb exactament tres veïns vius torna a la vida.
        <div class="FlexItem FlexContent"> 
            <form action="juego.php">
   <label for="largo">X:</label>
+               <?php
+if(!isset($_COOKIE[$largo])) {
+    ?>
   <input type="number" id="largo" name="largo"><br><br>
+               <?php }else{ ?>
+    <input type="number" id="largo" name="largo"  value="<?php echo $largo; ?>"><br><br>
+<?php }?>
   <label for="ancho">Y:</label>
+               <?php
+if(!isset($_COOKIE[$ancho])) {
+    ?>
   <input type="number" id="ancho" name="ancho"><br><br>
+               <?php }else{ ?>
+    <input type="number" id="ancho" name="ancho"  value="<?php echo $ancho; ?>"><br><br>
+<?php }?>
   <input type="submit" value="Generar">
 </form> </div>
        <div class="FlexItem FlexHeader">
