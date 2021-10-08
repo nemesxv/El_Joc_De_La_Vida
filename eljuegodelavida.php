@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<?php
+$ancho = $_GET["ancho"];
+$largo = $_GET["largo"];
+setcookie('ancho', $ancho);
+setcookie('largo', $largo);
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
