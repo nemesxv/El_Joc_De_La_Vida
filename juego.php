@@ -1,7 +1,7 @@
 <!doctype html>
 <?php
-$ancho = $_GET["ancho"];
-$largo = $_GET["largo"];
+$ancho = $_COOKIE["ancho"];
+$largo = $_COOKIE["largo"];
 setcookie('ancho', $ancho);
 setcookie('largo', $largo);
 ?>

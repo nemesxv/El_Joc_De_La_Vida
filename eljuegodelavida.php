@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -15,11 +16,11 @@ Tota cel·la morta amb exactament tres veïns vius torna a la vida.
  <br><br>
        Elija el tamaño del mapa</div>
        <div class="FlexItem FlexContent"> 
-           <form action="juego.php">
+           <form action="juego.php" >
   <label for="largo">X:</label>
-    <input type="number" id="largo" name="largo"  value="<?php echo $_COOKIE[$largo]; ?>"><br><br>
+    <input type="number" id="largo" name="largo"  value="<?php echo $_COOKIE['largo']; ?>"><br><br>
   <label for="ancho">Y:</label>
-    <input type="number" id="ancho" name="ancho"  value="<?php echo $_COOKIE[$ancho]; ?>"><br><br>
+    <input type="number" id="ancho" name="ancho"  value="<?php echo $_COOKIE['ancho']; ?>"><br><br>
   <input type="submit" value="Generar">
 </form> </div>
        <div class="FlexItem FlexHeader">
